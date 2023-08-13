@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Create Account</title>
+      <meta name="viewport" content="wid=device-width, initial-scale=1" />
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/style.css" />
+      <link rel="stylesheet" type="text/css" href="css/create-account.css">
+      <link href="css/sign-in.css" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/2ceae6c153.js" crossorigin="anonymous"></script>
+      <script>
+         function createAccount(){
+         	var xhttp = new XMLHttpRequest();
+                xhttp.open("POST", "CreateAccountServlet", true);
+                xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhttp.onload = function() {
+           	    //set the bottom div to "invalid login" or "login successful"
+                	document.getElementById("loginMsg").innerHTML = this.responseText;
+              		document.cookie = "username=" + document.myform.username.value;	            	
+                   	if(this.responseText.trim().normalize() === "Signup Successful"){
+                   		document.cookie = "login=true; expires=0;";
+                    	window.location.replace("index.html");	
+                    }
+                   	else{
+                   		document.cookie = "login=false";
+                   	}	            	
+             }
+             xhttp.send("field=loginInfo&username=" + document.myform.username.value + "&password=" + document.myform.password.value);
+         }
+      </script>		
+   </head>
+   <body>
+      <main class="form-signin w-100 m-auto">
+         <form name = "myform">
+            <h1 class="h3 mb-3 fw-normal">Create an account to begin trading!</h1>
+            <div class="form-floating">
+               <input type="email" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
+               <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+               <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+               <label for="floatingPassword">Password</label>
+            </div>
+            <input type="button" id="accountButton" class="w-100 btn btn-lg btn-primary" value="Create Account" onclick="createAccount();" />
+            <strong>
+               <div class="center" id="loginMsg"></div>
+            </strong>
+            <br/>
+            <p class="mt-5 mb-3 text-body-secondary">© Trojan Trader 2023</p>
+         </form>
+      </main>
+   </body>
+</html>

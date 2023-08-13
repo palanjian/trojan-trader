@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Login</title>
+      <meta name="viewport" content="wid=device-width, initial-scale=1" />
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/style.css" />
+      <link rel="stylesheet" type="text/css" href="css/sign-in.css">
+      <link rel="stylesheet" type="text/css" href="css/create-account.css">
+      <script src="https://kit.fontawesome.com/2ceae6c153.js" crossorigin="anonymous"></script>
+      <script>
+         function validateUsernameAndPassword(){
+            var xhttp = new XMLHttpRequest();
+                  xhttp.open("POST", "LoginServlet", true);
+                  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                  xhttp.onload = function() {        	   
+               	   //set the bottom div to "invalid login" or "login successful"
+                   	document.getElementById("loginMsg").innerHTML = this.responseText;
+                   	document.cookie = "username=" + document.myform.username.value;
+                   	if(this.responseText.trim().normalize() === "Login Successful"){
+                   		//if user selects remember me
+                   		document.cookie = "login=true; expires = 2100;";
+                   		window.location.replace("index.html");            		
+                    }
+                    else{
+                   		document.cookie = "login=false";
+                   	}
+               }
+               xhttp.send("field=loginInfo&username=" + document.myform.username.value + "&password=" + document.myform.password.value);
+         }
+      </script>
+   </head>
+   <body>
+      <main class="form-signin w-100 m-auto">
+         <form name="myform" method="GET">
+            <h1 class="h3 mb-3 fw-normal">Log in</h1>
+            <div class="form-floating">
+               <input id="emailButton" type="email" name="username" class="form-control" id="floatingInput"
+                  placeholder="name@example.com">
+               <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+               <input id="passwordButton" type="password" name="password" class="form-control" id="floatingPassword"
+                  placeholder="Password">
+               <label for="floatingPassword">Password</label>
+            </div>
+            <input type="button" id="signinbutton" class="w-100 btn btn-lg btn-primary" value="Sign in" onclick="validateUsernameAndPassword();" />
+            <strong>
+               <div class="center" id="loginMsg"></div>
+            </strong>
+            <br />
+            <p class="mt-5 mb-3 text-body-secondary">© Trojan Trader 2023</p>
+         </form>
+      </main>
+   </body>
+</html>

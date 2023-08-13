@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Trojan Trader</title>
+		<meta name="viewport" content="wid=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<script src="https://kit.fontawesome.com/2ceae6c153.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script>
+			function isLoggedIn(){
+				let c = getcookie("login");
+				if(c == "" || c==false || c=="false"){
+					//user isn't logged in
+					document.getElementById("login").hidden = false;
+					document.getElementById("createAccount").hidden = false;
+					document.getElementById("logout").hidden = true;
+					document.getElementById("buySellPage").hidden = true;
+					//document.getElementById("home").hidden = true;
+					document.getElementById("education").hidden = true;
+					document.getElementById("mystocks").hidden = true;
+				}
+				else{
+					//user is logged in 
+					document.getElementById("login").hidden = true;
+					document.getElementById("createAccount").hidden = true;
+					document.getElementById("logout").hidden = false;
+					document.getElementById("buySellPage").hidden = false;
+					//document.getElementById("home").hidden = true;
+					document.getElementById("education").hidden = false;
+					document.getElementById("mystocks").hidden = false;
+				}
+			}
+		
+			function logout(){
+				document.cookie = "login=false";
+				document.cookie = "username=null";
+				window.location.replace("index.html");
+			}
+		
+			function getcookie(name = '') {
+		    	let cookies = document.cookie;
+		    	let cookiestore = {};
+		    
+		    	cookies = cookies.split(";");
+		    
+		    	if (cookies[0] == "" && cookies[0][0] == undefined) {
+		        	return undefined;
+		    	}
+		    
+		    	cookies.forEach(function(cookie) {
+		        	cookie = cookie.split(/=(.+)/);
+		        	if (cookie[0].substr(0, 1) == ' ') {
+		            	cookie[0] = cookie[0].substr(1);
+		        	}
+		        	cookiestore[cookie[0]] = cookie[1];
+		    	});
+		    
+		    	return (name !== '' ? cookiestore[name] : cookiestore);
+			}
+		
+			function getStockPrice(stock){
+				var xhttp = new XMLHttpRequest();
+	        	xhttp.open("POST", "StockPriceServlet", true);
+	        	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	        	xhttp.onload = function() {
+	        		document.getElementById(stock).innerHTML = this.responseText;
+	        	}
+	        	xhttp.send("field=stockInfo&stockName=" + stock);
+			}
+		</script>
+	</head>
+	
+	<body onload="isLoggedIn()">
+		<header class="mui-bar mui-bar-nav">
+			<!-- Menu -->
+			<nav class="ca-navbar-light navbar navbar-expand-lg navbar-light bg-light"
+				aria-label="Fifth navbar example">
+				<div class="container">
+					<a class="navbar-brand" href="#">
+						<i class="fa-solid fa-arrow-trend-up"></i>
+						Trojan Trader</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+						data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarsExample05">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+							<li class="nav-item" id="mystocks">
+								<a class="nav-link" href="User_Page_MyStock.html">My Stocks</a>
+							</li>
+							<li class="nav-item" id="buySellPage">
+								<a class="nav-link" href="User_Page_PurchaseStock.html">Buy/Sell Stock</a>
+							</li>
+							<li class="nav-item" id="education">
+								<a class="nav-link" href="User_Page_Education.html">Education</a>
+							</li>
+							<li class="nav-item" id="login">
+								<a class="nav-link" aria-current="page" href="Login.html">Login</a>
+							</li>
+							<li class="nav-item" id="createAccount">
+								<a class="nav-link" href="Create_Account.html">Create Account</a>
+							</li>
+							<li class="nav-item" id = "logout">
+								<a class="nav-link" aria-current="page" href="" onclick="logout();" >Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+
+			<!-- My Stock Section -->
+			<section class="my_stock" >
+				<div class="mx-auto" style="position: relative; top: 200px; bottom: 200px;">
+					<div class="row featurette" style="margin-left:300px">
+						<div class="col-md-4">
+						  <h2 class="featurette-heading">Welcome to Trojan Trader!<span class="text-muted"></span></h2>
+						  <p class="lead">On this website, you'll be able to buy and sell stocks in a simulated environment. We even have great education resources in order for first-time investors to learn! If you are ready to get started, please create an account following the buttons above.</p>
+						</div>
+						<div class="col-md-5">
+						  <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 600px; height: 280px;" src="https://content.fortune.com/wp-content/uploads/2019/10/GettyImages-1158402857.jpg" data-holder-rendered="true">
+						</div>
+					 </div>	
+				</div>				
+			</section>
+
+			<!-- footer -->
+			<footer class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+							<h2 class="footer-heading">Contact Us</h2>
+							<div class="block-23 mb-3">
+								<ul>
+									<li><span class="icon fa fa-map"></span><span class="text">Los Angeles, CA 90007</span></li>
+									
+									<li><i class="icon fa-solid fa-chalkboard-user"></i><span class="text">Mentor: Devanshu Gupta</span></li>
+												
+									<li><i class="icon fa-solid fa-user-group"></i><span class="text"> Group Number: 22 </span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</header>
+	</body>
+</html>
