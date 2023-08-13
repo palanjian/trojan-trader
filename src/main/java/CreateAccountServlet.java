@@ -38,9 +38,9 @@ public class CreateAccountServlet extends HttpServlet {
 
 		//makes sure that an account does not already exist with that email
 		try {
-			String url = "jdbc:mysql://localhost:3306/trojantrader"; 
-			String u = "root"; 
-			String p = "root";
+			String url = env.JDBC_URL;
+			String u = env.SQL_USERNAME; 
+			String p = env.SQL_PASSWORD;
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, u, p);
 			PreparedStatement prep = con.prepareStatement("SELECT COUNT(*) FROM userinfo WHERE username=?");
@@ -70,9 +70,9 @@ public class CreateAccountServlet extends HttpServlet {
 		//connecting to the sql server, change this when we move to aws
 
 		try {
-			String url = "jdbc:mysql://localhost:3306/trojantrader"; 
-			String u = "root"; 
-			String p = "root";
+			String url = env.JDBC_URL;
+			String u = env.SQL_USERNAME; 
+			String p = env.SQL_PASSWORD;
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, u, p);
 			

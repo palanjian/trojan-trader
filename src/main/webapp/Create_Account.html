@@ -7,8 +7,8 @@
       <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
       <link rel="stylesheet" type="text/css" href="css/style.css" />
+      <link rel="stylesheet" type="text/css" href="css/sign-in.css">
       <link rel="stylesheet" type="text/css" href="css/create-account.css">
-      <link href="css/sign-in.css" rel="stylesheet">
       <script src="https://kit.fontawesome.com/2ceae6c153.js" crossorigin="anonymous"></script>
       <script>
          function createAccount(){
@@ -36,14 +36,14 @@
          <form name = "myform">
             <h1 class="h3 mb-3 fw-normal">Create an account to begin trading!</h1>
             <div class="form-floating">
-               <input type="email" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
+               <input type="email" name="username" class="form-control" id="emailButton" placeholder="name@example.com">
                <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-               <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+               <input type="password" name="password" class="form-control" id="passwordButton" placeholder="Password">
                <label for="floatingPassword">Password</label>
             </div>
-            <input type="button" id="accountButton" class="w-100 btn btn-lg btn-primary" value="Create Account" onclick="createAccount();" />
+            <input type="button" id="signinbutton" class="w-100 btn btn-lg btn-primary" value="Create Account" onclick="createAccount();" />
             <strong>
                <div class="center" id="loginMsg"></div>
             </strong>

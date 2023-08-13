@@ -4,10 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,10 +30,9 @@ public class BalanceServlet extends HttpServlet {
 		
 		//check balance
 		try {
-			String url = "jdbc:mysql://localhost:3306/trojantrader"; 
-			String u = "root"; 
-			String p = "root";
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = env.JDBC_URL;
+			String u = env.SQL_USERNAME; 
+			String p = env.SQL_PASSWORD;
 			Connection con = DriverManager.getConnection(url, u, p);
 
 			

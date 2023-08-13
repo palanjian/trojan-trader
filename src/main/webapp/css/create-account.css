@@ -77,6 +77,12 @@
      border: orange;
      border-radius: 25px;
 }
+ #accountbutton {
+     background-color: #5a23c8;
+     border: orange;
+     border-radius: 25px;
+}
+
  #passwordButton {
      border-radius: 25px;
      margin-bottom: 10px;

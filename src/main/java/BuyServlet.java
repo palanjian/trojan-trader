@@ -43,9 +43,9 @@ public class BuyServlet extends HttpServlet {
 		}
 		//check balance
 		try {
-			String url = "jdbc:mysql://localhost:3306/trojantrader"; 
-			String u = "root"; 
-			String p = "root";
+			String url = env.JDBC_URL;
+			String u = env.SQL_USERNAME; 
+			String p = env.SQL_PASSWORD;
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, u, p);
 
@@ -86,9 +86,9 @@ public class BuyServlet extends HttpServlet {
 			System.out.println(username + " has enough to purchase the stock. Now purchasing.");
 			try {
 				double newbalance = usersBalance - (totalPrice);
-				String url = "jdbc:mysql://localhost:3306/trojantrader"; 
-				String u = "root"; 
-				String p = "root";
+				String url = env.JDBC_URL;
+				String u = env.SQL_USERNAME; 
+				String p = env.SQL_PASSWORD;
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				Connection con = DriverManager.getConnection(url, u, p);
 				PreparedStatement prep = con.prepareStatement("update userinfo set balance = " + newbalance + " where username = ?");

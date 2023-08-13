@@ -29,9 +29,9 @@ public class LastTenServlet extends HttpServlet {
 
 		//check balance
 		try {
-			String url = "jdbc:mysql://localhost:3306/trojantrader"; 
-			String u = "root"; 
-			String p = "root";
+			String url = env.JDBC_URL;
+			String u = env.SQL_USERNAME; 
+			String p = env.SQL_PASSWORD;
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, u, p);
 
