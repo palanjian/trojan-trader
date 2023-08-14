@@ -1,19 +1,19 @@
 # Trojan Trader 📈
 Trojan Trader is a web-based stock trading simulation application that allows users to virtually trade stocks, manage their portfolio, and learn about the stock market.
 ## Table of Contents
-* [Overview](https://github.com/palanjian/trojan-trader#overview)
-* [Features](https://github.com/palanjian/trojan-trader#features)
-* [Demo](https://github.com/palanjian/trojan-trader#demo)
-* [Getting Started](https://github.com/palanjian/trojan-trader#getting-started)
-  - [Prerequisites](https://github.com/palanjian/trojan-trader#prerequisites)
-  - [Installation](https://github.com/palanjian/trojan-trader#installation)
-* [Usage](https://github.com/palanjian/trojan-trader#usage)
-* [Technologies](https://github.com/palanjian/trojan-trader#technologies)
-* [Contributors](https://github.com/palanjian/trojan-trader#contributors)
+* [Overview](https://github.com/palanjian/trojan-trader#overview-)
+* [Features](https://github.com/palanjian/trojan-trader#features-)
+* [Demo](https://github.com/palanjian/trojan-trader#demo-)
+* [Getting Started](https://github.com/palanjian/trojan-trader#getting-started-)
+  - [Prerequisites](https://github.com/palanjian/trojan-trader#prerequisites-)
+  - [Installation](https://github.com/palanjian/trojan-trader#installation-)
+* [Usage](https://github.com/palanjian/trojan-trader#usage-%EF%B8%8F)
+* [Technologies](https://github.com/palanjian/trojan-trader#technologies-)
+* [Contributors](https://github.com/palanjian/trojan-trader#contributors-)
 
 ## Overview 🔎
 Trojan Trader is a web platform designed to provide users with a simulated stock trading experience. Users can view real-time stock prices, track their portfolio performance, and learn about the stock market through educational resources.
-<br><br>This application was developed by a team of [team of 7](https://github.com/palanjian/trojan-trader#contributors) over the course of two weeks as the Final Project for USC's CS201 (Principles of Software Development.)
+<br><br>This application was developed by a team of [team of 7](https://github.com/palanjian/trojan-trader#contributors-) over the course of two weeks as the Final Project for USC's CS201 (Principles of Software Development.)
 ## Features 📚
 * __User Authentication and Security:__
   - Users can log in using their email addresses and passwords.
