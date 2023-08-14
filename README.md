@@ -13,7 +13,9 @@ Trojan Trader is a web-based stock trading simulation application that allows us
 
 ## Overview 🔎
 Trojan Trader is a web platform designed to provide users with a simulated stock trading experience. Users can view real-time stock prices, track their portfolio performance, and learn about the stock market through educational resources.
-<br><br>This application was developed by a team of [team of 7](https://github.com/palanjian/trojan-trader#contributors-) over the course of two weeks as the Final Project for USC's CS201 (Principles of Software Development.)
+![showcase3](https://github.com/palanjian/trojan-trader/assets/134035492/d8972b8c-b536-4a2c-9da4-9705fd30f69d)
+
+This application was developed by a team of [team of 7](https://github.com/palanjian/trojan-trader#contributors-) over the course of two weeks as the Final Project for USC's CS201 (Principles of Software Development.)
 ## Features 📚
 * __User Authentication and Security:__
   - Users can log in using their email addresses and passwords.
@@ -38,7 +40,7 @@ Trojan Trader is a web platform designed to provide users with a simulated stock
   - Used to handle simultaneous buy & sell orders, login requests, and various other requests.
 
 ## Demo 🎬
-Coming Soon!
+A complete demo of the project can be found on [YouTube](https://www.youtube.com/watch?v=mjQc6VQXqMQ&ab_channel=PeterPalanjian)
 
 ## Getting Started 🏁
 Follow these steps to set up and run the Trojan Trader application on your local machine.
