@@ -62,8 +62,18 @@ public class env {
     public static final String SQL_PASSWORD = "your-password";
 }
 ```
-4. Locate and run the ```stockupdater.py``` script located in [Python Scripts](https://github.com/palanjian/trojan-trader/tree/main/Python%20Scripts) to update real-time stock information.
-5. Deploy your application on Apache Tomcat by right-clicking the project in Eclipse Explorer and selecting ``Run as → Run on Server``.
+4. Locate and configure the ```stockupdater.py``` script located in [Python Scripts](https://github.com/palanjian/trojan-trader/tree/main/Python%20Scripts) with your database connection details and Finnhub API token.
+```
+    mydb = mysql.connector.connect(
+      host="localhost",
+      user="root",
+      password="root",
+      database="TrojanTrader"
+    )
+    token="xyz"
+```
+5. Run the script.
+6. Deploy your application on Apache Tomcat by right-clicking the project in Eclipse Explorer and selecting ``Run as → Run on Server``.
 
 ## Usage 🛠️
 * User Registration and Login:
