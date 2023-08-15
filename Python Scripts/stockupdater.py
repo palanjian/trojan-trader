@@ -42,9 +42,11 @@ if __name__ == "__main__":
       password="root",
       database="TrojanTrader"
     )
+    token="xyz"
+    
     mycursor = mydb.cursor(prepared=True)
 
-    ws = websocket.WebSocketApp("wss://ws.finnhub.io?token=cgvj4qpr01qqk0doko70cgvj4qpr01qqk0doko7g",
+    ws = websocket.WebSocketApp("wss://ws.finnhub.io?token=" + token,
                               on_message = on_message,
                               on_error = on_error,
                               on_close = on_close)
